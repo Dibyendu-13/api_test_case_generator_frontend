@@ -1,38 +1,54 @@
-.App {
-  text-align: center;
+/* General Styles */
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+pre {
+  overflow-x: auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+  .MuiContainer-root {
+    padding: 1rem !important;
+  }
+
+  button {
+    width: 100% !important;
+  }
+
+  pre {
+    font-size: 14px;
+  }
+
+  .MuiTypography-h3 {
+    font-size: 1.8rem !important;
+  }
+
+  .MuiTypography-h5 {
+    font-size: 1.4rem !important;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (max-width: 480px) {
+  .MuiTypography-h3 {
+    font-size: 1.5rem !important;
   }
-  to {
-    transform: rotate(360deg);
+
+  .MuiTypography-body1 {
+    font-size: 0.9rem !important;
+  }
+
+  .MuiTypography-h5 {
+    font-size: 1.2rem !important;
+  }
+
+  pre {
+    font-size: 12px;
+  }
+
+  .MuiButton-root {
+    font-size: 0.9rem !important;
   }
 }

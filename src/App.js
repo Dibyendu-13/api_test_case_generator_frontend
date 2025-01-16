@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./App.css"
 import axios from "axios";
 import { Container, Typography, Button, Box, Paper, Divider } from "@mui/material";
 import Lottie from "react-lottie"; // Import Lottie
@@ -50,10 +51,22 @@ const App = () => {
   };
 
   return (
-    <Container maxWidth="md" sx={{ paddingY: 3 }}>
+    <Container
+    maxWidth="md"
+    sx={{
+      paddingY: { xs: 2, md: 3 },
+      paddingX: { xs: 2, sm: 4 },
+    }}
+  >
       {/* Header Section */}
       <Box sx={{ marginBottom: 3, textAlign: "center" }}>
-        <Typography variant="h3" gutterBottom>
+      <Typography
+  variant="h3"
+  gutterBottom
+  sx={{
+    fontSize: { xs: "1.5rem", sm: "2rem", md: "2.5rem" },
+  }}
+>
           API Test Case Generator
         </Typography>
         <Typography variant="body1" paragraph>
@@ -77,7 +90,15 @@ const App = () => {
       </Box>
 
       {/* Sample Responses Section */}
-      <Box component={Paper} elevation={3} sx={{ padding: 2, marginBottom: 3 }}>
+      <Box
+  component={Paper}
+  elevation={3}
+  sx={{
+    padding: { xs: 2, sm: 3 },
+    marginBottom: { xs: 2, sm: 3 },
+  }}
+>
+
         <Typography variant="h6">Sample Responses</Typography>
         <Divider sx={{ marginY: 2 }} />
         {/* Success Response */}
@@ -99,37 +120,49 @@ const App = () => {
 
       {/* Generate Test Cases Section */}
       <Box sx={{ textAlign: "center", marginBottom: 3 }}>
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={fetchTestCases}
-          disabled={loading}
-          size="large"
-          sx={{ width: "30%" }}
-        >
-          {loading ? "Generating Response..." : "Generate Test Cases"}
-        </Button>
+      <Button
+  variant="contained"
+  color="primary"
+  onClick={fetchTestCases}
+  disabled={loading}
+  size="large"
+  sx={{
+    width: { xs: "100%", sm: "50%", md: "30%" },
+  }}
+>
+  {loading ? "Generating Response..." : "Generate Test Cases"}
+</Button>
+
       </Box>
 
       {/* Lottie Animation for loading */}
       {loading && (
-        <Box sx={{ display: "flex", justifyContent: "center", marginBottom: 3 }}>
-          <Lottie options={lottieOptions} height={100} width={100} />
-        </Box>
-      )}
+  <Box
+    sx={{
+      display: "flex",
+      justifyContent: "center",
+      marginBottom: { xs: 2, sm: 3 },
+    }}
+  >
+    <Lottie options={lottieOptions} height={80} width={80} />
+  </Box>
+)}
+
 
       {/* Response Display Below Content */}
       {testCases && (
         <Box
-          sx={{
-            padding: 2,
-            background: "#f4f4f4",
-            borderRadius: "5px",
-            whiteSpace: "pre-wrap",
-            maxHeight: "400px", // Set a fixed height
-            overflowY: "auto",  // Make it scrollable if content overflows
-          }}
-        >
+        sx={{
+          padding: 2,
+          background: "#f4f4f4",
+          borderRadius: "5px",
+          whiteSpace: "pre-wrap",
+          maxHeight: "300px", // Reduced height for smaller screens
+          overflowY: "auto",
+          fontSize: { xs: "12px", sm: "14px" },
+        }}
+      >
+      
           <Typography variant="h6">Generated Test Cases</Typography>
           <pre>
             <code>{testCases}</code>
