@@ -29,7 +29,7 @@ const App = () => {
   const fetchTestCases = async () => {
     setLoading(true);
     try {
-      const response = await axios.post("http://localhost:5001/generate-test-cases");
+      const response = await axios.post("https://api-test-case-generator-backend.onrender.com/generate-test-cases");
       setTestCases(response.data.testCases);
     } catch (error) {
       console.error("Error fetching test cases:", error);
